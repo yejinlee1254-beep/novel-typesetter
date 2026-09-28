@@ -10,7 +10,7 @@
 <style>
 :root{--bg:#f3f1ed;--panel:#fff;--ink:#222;--muted:#777;--line:#ddd;--accent:#222}
 *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;background:var(--bg);color:var(--ink)}
-button,input,select,textarea{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:360px 1fr}.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:18px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:20px;font-weight:800;margin-bottom:14px}.section{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.section h2{font-size:13px;margin:0 0 10px;color:#555}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#666}.field input,.field select,.field textarea{width:100%;border:1px solid #ccc;border-radius:8px;padding:9px;background:#fff}.field textarea{height:36vh;resize:vertical;line-height:1.5}.checks{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}.actions{display:flex;gap:8px;margin-top:14px}.actions button{border:0;border-radius:9px;padding:10px 12px;cursor:pointer}.primary{background:#222;color:#fff}.secondary{background:#eee}.status{font-size:12px;color:#666;margin-top:8px}.workspace{padding:28px;overflow:auto}.pages{display:flex;flex-direction:column;align-items:center;gap:22px}.page{position:relative;background:white;box-shadow:0 5px 22px #0002;width:148mm;height:210mm;overflow:hidden}.page-inner{position:absolute}.header,.footer{position:absolute;left:0;right:0;text-align:center;color:#666;font-size:8.5pt;letter-spacing:.03em}.header{top:8mm}.footer{bottom:7mm}.text-frame{height:100%;overflow:hidden}.text-flow{margin:0;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;text-align:justify;text-justify:inter-character;line-break:strict;hanging-punctuation:none}.measure{position:fixed;left:-100000px;top:0;visibility:hidden;pointer-events:none}.mobile-tabs{display:none}
+button,input,select,textarea{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:360px 1fr}.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:18px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:20px;font-weight:800;margin-bottom:14px}.section{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.section h2{font-size:13px;margin:0 0 10px;color:#555}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#666}.field input,.field select,.field textarea{width:100%;border:1px solid #ccc;border-radius:8px;padding:9px;background:#fff}.field textarea{height:36vh;resize:vertical;line-height:1.5}.checks{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}.actions{display:flex;gap:8px;margin-top:14px}.actions button{border:0;border-radius:9px;padding:10px 12px;cursor:pointer}.primary{background:#222;color:#fff}.secondary{background:#eee}.status{font-size:12px;color:#666;margin-top:8px}.workspace{padding:28px;overflow:auto}.pages{display:flex;flex-direction:column;align-items:center;gap:22px}.page{position:relative;background:white;box-shadow:0 5px 22px #0002;width:148mm;height:210mm;overflow:hidden}.page-inner{position:absolute}.header,.footer{position:absolute;left:0;right:0;text-align:right;color:#666;font-size:8.5pt;letter-spacing:.03em}.header{top:8mm}.footer{bottom:7mm}.text-frame{height:100%;overflow:hidden}.text-flow{margin:0;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;text-align:justify;text-justify:inter-character;line-break:strict;hanging-punctuation:none}.measure{position:fixed;left:-100000px;top:0;visibility:hidden;pointer-events:none}.mobile-tabs{display:none}
 @media(max-width:800px){.app{display:block}.sidebar{position:relative;height:auto;border-right:0}.workspace{padding:14px}.field textarea{height:30vh}.mobile-tabs{display:flex;position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #ddd}.mobile-tabs button{flex:1;border:0;background:#fff;padding:12px}.mobile-tabs button.active{font-weight:800;border-bottom:2px solid #222}.sidebar.hide,.workspace.hide{display:none}.page{transform-origin:top center}}
 @media print{body{background:#fff}.sidebar,.mobile-tabs{display:none!important}.app{display:block}.workspace{padding:0}.pages{gap:0}.page{box-shadow:none;break-after:page;page-break-after:always;margin:0}.page:last-child{break-after:auto;page-break-after:auto}@page{size:A5;margin:0}}
 </style>
@@ -22,7 +22,7 @@ button,input,select,textarea{font:inherit}.app{min-height:100vh;display:grid;gri
   <div class="brand">소설 조판기</div>
   <div class="field full"><label>원고</label><textarea id="source">첫 문단을 여기에 입력하세요.\n\n긴 원고를 붙여 넣으면 한 페이지에 들어가는 만큼 자동으로 나뉘고, 넘치는 내용은 다음 페이지로 이어집니다.\n\n조판 설정을 바꾸면 미리보기가 자동으로 다시 계산됩니다.</textarea></div>
   <div class="section"><h2>책 설정</h2><div class="grid">
-    <div class="field"><label>용지</label><select id="paper"><option value="A5">A5 148×210 mm</option><option value="B6">B6 128×182 mm</option><option value="A4">A4 210×297 mm</option></select></div>
+    <div class="field"><label>용지</label><select id="paper"><option value="A5">A5 148×210 mm</option><option value="SIN">신국판 152×225 mm</option><option value="B6">B6 128×182 mm</option><option value="A4">A4 210×297 mm</option></select></div>
     <div class="field"><label>글꼴</label><select id="font"><option value="Noto Serif KR">본명조 (Noto Serif KR)</option><option value="serif">기본 명조</option><option value="sans-serif">기본 고딕</option></select></div>
     <div class="field"><label>글자 크기 (pt)</label><input id="fontSize" type="number" value="10.5" step="0.1" min="6" max="30"></div>
     <div class="field"><label>행간 (%)</label><input id="lineHeight" type="number" value="175" step="1" min="100" max="300"></div>
@@ -44,7 +44,7 @@ button,input,select,textarea{font:inherit}.app{min-height:100vh;display:grid;gri
 <div class="measure" id="measure"></div>
 <script>
 const $=id=>document.getElementById(id);
-const paperSizes={A5:[148,210],B6:[128,182],A4:[210,297]};
+const paperSizes={A5:[148,210],SIN:[152,225],B6:[128,182],A4:[210,297]};
 const ids=['source','paper','font','fontSize','lineHeight','letterSpacing','scaleX','indent','paraGap','mt','mb','mi','mo','runningHead','showHead','showPage','mirror'];
 let timer;
 function cfg(){return Object.fromEntries(ids.map(id=>[id,$(id).type==='checkbox'?$(id).checked:$(id).value]));}
@@ -55,22 +55,46 @@ function applyTypography(el,c,width){
  el.style.transformOrigin='top left'; el.style.transform=`scaleX(${+c.scaleX/100})`;
  el.style.width=(width/(+c.scaleX/100))+'mm';
 }
-function textHTML(text,c){
+function textHTML(text,c,continuation=false){
  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
- return text.split(/\n\s*\n/).map(p=>`<p style="margin:0 0 ${c.paraGap}em;text-indent:${c.indent}em">${esc(p).replace(/\n/g,'<br>')}</p>`).join('');
+ // 한 번의 줄바꿈(Enter)도 새 문단으로 취급합니다.
+ // 빈 줄은 빈 문단으로 보존합니다.
+ return text.split(/\n/).map((p,i)=>{
+   if(p==='') return `<p style="margin:0 0 ${c.paraGap}em;height:${c.lineHeight/100}em"></p>`;
+   const indent=(continuation && i===0)?0:c.indent;
+   return `<p style="margin:0 0 ${c.paraGap}em;text-indent:${indent}em">${esc(p)}</p>`;
+ }).join('');
 }
-function fits(text,c,w,h){const m=$('measure');m.innerHTML='';const d=document.createElement('div');d.className='text-flow';applyTypography(d,c,w);d.innerHTML=textHTML(text,c);m.appendChild(d);return d.getBoundingClientRect().height<=mmToPx(h)+.5;}
+function fits(text,c,w,h,continuation=false){const m=$('measure');m.innerHTML='';const d=document.createElement('div');d.className='text-flow';applyTypography(d,c,w);d.innerHTML=textHTML(text,c,continuation);m.appendChild(d);return d.getBoundingClientRect().height<=mmToPx(h)+.5;}
 function mmToPx(mm){return mm*96/25.4}
 function splitPages(text,c,w,h){
- if(!text.trim()) return [''];
- let pages=[],rest=text;
+ if(!text.trim()) return [{text:'',continuation:false}];
+ let pages=[],rest=text,continuation=false;
  while(rest.length){
-   if(fits(rest,c,w,h)){pages.push(rest);break}
+   if(fits(rest,c,w,h,continuation)){pages.push({text:rest,continuation});break}
    let lo=1,hi=rest.length,best=1;
-   while(lo<=hi){let mid=(lo+hi)>>1;let cut=rest.lastIndexOf('\n',mid);if(cut<Math.floor(mid*.65)) cut=rest.lastIndexOf(' ',mid);if(cut<1)cut=mid;let chunk=rest.slice(0,cut);if(fits(chunk,c,w,h)){best=cut;lo=mid+1}else hi=mid-1}
-   // Prefer a nearby natural break, but never exceed measured fit.
-   let cut=best; const candidates=[rest.lastIndexOf('\n\n',best),rest.lastIndexOf('\n',best),rest.lastIndexOf(' ',best)].filter(x=>x>best-250&&x>0); if(candidates.length) cut=Math.max(...candidates);
-   if(cut<1) cut=best; pages.push(rest.slice(0,cut).trimEnd()); rest=rest.slice(cut).trimStart();
+   while(lo<=hi){
+     let mid=(lo+hi)>>1;
+     let cut=rest.lastIndexOf('\n',mid);
+     if(cut<Math.floor(mid*.65)) cut=rest.lastIndexOf(' ',mid);
+     if(cut<1) cut=mid;
+     let chunk=rest.slice(0,cut);
+     if(fits(chunk,c,w,h,continuation)){best=cut;lo=mid+1}else hi=mid-1
+   }
+   let cut=best;
+   const candidates=[rest.lastIndexOf('\n',best),rest.lastIndexOf(' ',best)].filter(x=>x>best-250&&x>0);
+   if(candidates.length) cut=Math.max(...candidates);
+   if(cut<1) cut=best;
+   const endedAtParagraph = rest[cut] === '\n';
+   pages.push({text:rest.slice(0,cut).replace(/\s+$/,''),continuation});
+   rest=rest.slice(cut);
+   if(endedAtParagraph){
+     rest=rest.replace(/^\n/, '');
+     continuation=false;
+   }else{
+     rest=rest.replace(/^ +/, '');
+     continuation=true;
+   }
  }
  return pages;
 }
@@ -78,11 +102,11 @@ function render(){
  const c=cfg(),[pw,ph]=paperSizes[c.paper]; const top=+c.mt,bottom=+c.mb,inside=+c.mi,outside=+c.mo;
  const headerSpace=c.showHead?8:0, footerSpace=c.showPage?8:0; const contentH=ph-top-bottom-headerSpace-footerSpace;
  const contentW=pw-inside-outside; const chunks=splitPages(c.source,c,contentW,contentH); const root=$('pages');root.innerHTML='';
- chunks.forEach((txt,i)=>{const n=i+1,odd=n%2===1;let left,right;if(c.mirror){left=odd?inside:outside;right=odd?outside:inside}else{left=inside;right=outside}
+ chunks.forEach((chunk,i)=>{const txt=chunk.text, n=i+1,odd=n%2===1;let left,right;if(c.mirror){left=odd?inside:outside;right=odd?outside:inside}else{left=inside;right=outside}
    const page=document.createElement('section');page.className='page';page.style.width=pw+'mm';page.style.height=ph+'mm';
    const head=c.showHead?`<div class="header">${escapeHTML(c.runningHead)}</div>`:''; const foot=c.showPage?`<div class="footer">${n}</div>`:'';
    const y=top+headerSpace; page.innerHTML=head+`<div class="page-inner" style="left:${left}mm;right:${right}mm;top:${y}mm;bottom:${bottom+footerSpace}mm"><div class="text-frame"><div class="text-flow"></div></div></div>`+foot;
-   const flow=page.querySelector('.text-flow');applyTypography(flow,c,contentW);flow.innerHTML=textHTML(txt,c);root.appendChild(page);
+   const flow=page.querySelector('.text-flow');applyTypography(flow,c,contentW);flow.innerHTML=textHTML(txt,c,chunk.continuation);root.appendChild(page);
  });
  $('status').textContent=`${chunks.length}쪽 · ${c.source.length.toLocaleString()}자`;
  fitMobilePages(); localStorage.setItem('novel-typesetter',JSON.stringify(c));
